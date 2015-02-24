@@ -5,6 +5,7 @@ angular.module('ki', [
 	'login',
 	'sidebar',
   'map',
+  'charts',
 	'ki.directives',
 	'htmlTemplates',
 	'ki.resources',

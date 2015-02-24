@@ -6,6 +6,7 @@
 
   <link rel="stylesheet" href="bower_components/openlayers3/build/ol.css">
   <link rel="stylesheet" href="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.css">
+  <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
   <link rel="stylesheet" href="app.css">
 
   <!-- Disable browser cache -->
@@ -261,6 +262,45 @@
                                 height="480px"
                                 width="100%">
                         </openlayers>
+                    </div>
+                </div>
+                <div ng-controller="UtilizationCtrl">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="fa fa-bar-chart-o fa-fw"></i> Current CPU Utilization
+                                </div>
+                                <utilization-pie value-map="currCpuUsage" total="100"></utilization-pie>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="fa fa-bar-chart-o fa-fw"></i> Current Memory Utilization
+                                </div>
+                                <utilization-pie value-map="currMemoryUsage" total="totalMemory"></utilization-pie>
+                                <!--<pie-chart data="currMemoryUsage.values" isPercent="true" labels="currMemoryUsage.labels"></pie-chart>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="fa fa-bar-chart-o fa-fw"></i> CPU Utilization for the last hour
+                                </div>
+                                <history-graph values="memoryHistory" time-interval="{{historyTimeInterval}}"></history-graph>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="fa fa-bar-chart-o fa-fw"></i> Memory Utilization for the last hour
+                                </div>
+                                <history-graph values="cpuHistory" time-interval="{{historyTimeInterval}}"></history-graph>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -810,6 +850,7 @@
    <script src="bower_components/jqueryui/jquery-ui.min.js"></script>
    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
    <script src="bower_components/openlayers3/build/ol.js"></script>
+   <script src="bower_components/Chart.js/Chart.min.js"></script>
    -->
 
    <!-- 3RD PARTY -->
@@ -828,6 +869,7 @@
    <script src="bower_components/moment/min/moment.min.js"></script>
    <script src="bower_components/angular-ui-sortable/sortable.min.js"></script>
    <script src="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.min.js"></script>
+   <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
    -->
    <!-- endbuild -->
 
